@@ -1,0 +1,20 @@
+<h3>Search for region</h3>
+<div class="row">
+  <div class="col">
+    <!--    [class.btn-primary]="item === regionActive" -->
+    <button
+      *ngFor="let item of regions"
+      [class]="getClass(item)"
+      class="m-2"
+      (click)="activeRegion(item)"
+    >
+      {{ item | titlecase }}
+    </button>
+  </div>
+
+  <div *ngIf="countries.length > 0" class="row">
+    <div class="col">
+      <app-countries-table [countries]="countries"></app-countries-table>
+    </div>
+  </div>
+</div>

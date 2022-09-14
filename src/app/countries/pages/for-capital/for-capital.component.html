@@ -1,0 +1,23 @@
+<h2>For countries</h2>
+<hr />
+
+<div class="row">
+  <div class="col mb-3">
+    <app-capital-input
+      (onEnter)="search($event)"
+      (onDebounce)="suggestions($event)"
+      placeholder="Search capital...."
+    ></app-capital-input>
+  </div>
+  <hr />
+
+  <div class="alert alert-danger text-center" *ngIf="isError">
+    It was not found {{ term }}
+  </div>
+
+  <div class="row" *ngIf="countries.length > 0">
+    <div class="col">
+      <app-capita-table [countries]="countries"></app-capita-table>
+    </div>
+  </div>
+</div>
